@@ -335,6 +335,8 @@ players)
 names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
 
 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator.
+
+
 Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'.
 Then, call the function again with players from game.scored
 GOOD LUCK 😀 */
@@ -379,3 +381,63 @@ const game = {
     team2: 6.5,
   },
 };
+
+// 1.
+const players1 = game.players[0];
+console.log(players1);
+const players2 = game.players[1];
+console.log(players2);
+
+// 2. Bayern Munich
+// const gk = players1[0];
+// console.log(gk);
+const [gk, ...fieldPlayers] = players1;
+console.log(fieldPlayers);
+console.log(gk);
+
+// 3. ALL PLAYERS
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// 4.
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+// 5.
+const { team1, x: draw, team2 } = game.odds;
+
+console.log(team1);
+console.log(draw);
+console.log(team2);
+
+// 6.
+// function to print goals and total goals scored
+
+const printGoals = function (...allPlayers) {
+  // print each player name
+  for (let i = 0; i < allPlayers.length; i++)
+    console.log(`Goal ${i + 1}: ${allPlayers[i]}`);
+
+  // Total number of
+  console.log(`Total goals scored: ${allPlayers.length}`);
+};
+printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
+
+// 7. Fuction to print the team more likely to win based on lower odds
+
+const moreLikelyWiner = function () {
+  const team1 = game.team1;
+  const team2 = game.team2;
+  const odds1 = game.odds.team1;
+  const odds2 = game.odds.team2;
+
+  // Team with lower odds
+
+  let winner = team1;
+  if (odds1 > odds2) {
+    winner = team2;
+  }
+  console.log(winner);
+};
+moreLikelyWiner();
