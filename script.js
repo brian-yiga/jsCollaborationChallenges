@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -206,8 +206,6 @@ makeNegative(0);    // return 0
 // console.log(makeNegative(-5));
 // console.log(makeNegative(0));
 
-
-
 /*Destructuring Nested Objects - Flatten Object
 You are given an object with a nested object representing the address of a person. Destructure the object and flatten the address properties (e.g., street, city, zip) into the main object.
 
@@ -226,16 +224,16 @@ Example Output:
 
 name: "Eve", street: "123 Main St", city: "Springfield", zip: "12345"*/
 
-// const user = { 
-//     name: "Eve", 
-//     address: { 
-//             street: "123 Main St", 
-//             city: "Springfield", 
+// const user = {
+//     name: "Eve",
+//     address: {
+//             street: "123 Main St",
+//             city: "Springfield",
 //             zip: "12345",
-//         }, 
+//         },
 //     };
 
-//DESTRUCTURE ADDRESS FROM USER 
+//DESTRUCTURE ADDRESS FROM USER
 // const { street, city, zip } = user.address;
 // console.log(street, city, zip)
 
@@ -251,8 +249,6 @@ name: "Eve", street: "123 Main St", city: "Springfield", zip: "12345"*/
 // const { name, address: { street, city, zip } } = user;
 
 // console.log(`name: ${name}, street: ${street}, city: ${city}, zip: ${zip}`);
-
-
 
 /*Destructuring Arrays - Skipping Elements
 You are given an array of numbers. Use array destructuring to extract the first two elements and skip the third one. Put the remaining elements into a new array rest
@@ -270,7 +266,6 @@ first: 1, second: 2, rest: [4, 5]*/
 // const [first, second, , ...rest] = numbers;
 // console.log(`first: ${first}, second: ${second}, rest: [${rest}]`);
 
-
 /*Destructuring in Function Parameters
 
 Write a function that takes an object as a parameter and destructures it to extract name, age, and country. Provide default values for age (25) and country ("USA") if they are not provided.
@@ -283,11 +278,10 @@ Expected Output:
 
 "Hello, Charlie. You are 25 years old and from USA."*/
 
-// function greetUser({ name, age = 25, country = "USA" }) { 
+// function greetUser({ name, age = 25, country = "USA" }) {
 //     return `Hello, ${name}. You are ${age} years old and from ${country}`;
 
-// } 
-
+// }
 
 //     const user = { name: "Charlie" };
 
@@ -296,20 +290,92 @@ Expected Output:
 
 // console.log(user);
 
-
 /*Destructuring with Functions - Extract and Return Specific Values
 
 You are given a function getUserInfo that receives an object as an argument. The object contains properties name, age, city, and country. Use destructuring to extract name and city, and return a string with this information. If any of these properties are missing, use default values: "Unknown" for name and "Unknown City" for city.*/
 
-const getUserInfo = function ({name = 'Unknown', city = 'Unknown City', age, country}) {
-    return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
-}
+/* const getUserInfo = function ({
+  name = 'Unknown',
+  city = 'Unknown City',
+  age,
+  country,
+}) {
+  return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
+};
 
 const user = {
-    // name: 'Brian',
-    age: 30,
-    // city: 'Kampala',
-    country: 'Uganda'
+  // name: 'Brian',
+  age: 30,
+  // city: 'Kampala',
+  country: 'Uganda',
 };
 
 console.log(getUserInfo(user));
+*/
+
+/*
+We're building a football betting app (soccer for my American friends 😅)!
+Suppose we get data from a web service about a certain game ('game' variable on next page). In this challenge we're gonna work with that data.
+Your tasks:
+
+1. Create one player array for each team (variables 'players1' and
+'players2')
+
+2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+
+3. Create an array 'allPlayers' containing all players of both teams (22
+players)
+
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+
+5. Based on the game.odds object, create one variable for each odd (called
+'team1', 'draw' and 'team2')
+
+6. Write a function ('printGoals') that receives an arbitrary number of player
+names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+
+7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator.
+Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'.
+Then, call the function again with players from game.scored
+GOOD LUCK 😀 */
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
