@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -342,39 +342,39 @@ Then, call the function again with players from game.scored
 GOOD LUCK 😀 */
 
 const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
   players: [
     [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
     ],
     [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
     ],
   ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
   odds: {
     team1: 1.33,
     x: 3.25,
@@ -401,7 +401,7 @@ const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 // 4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
 console.log(players1Final);
 
 // 5.
@@ -422,7 +422,7 @@ const printGoals = function (...allPlayers) {
   // Total number of
   console.log(`Total goals scored: ${allPlayers.length}`);
 };
-printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
+printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
 
 // 7. Fuction to print the team more likely to win based on lower odds
 
@@ -441,3 +441,49 @@ const moreLikelyWiner = function () {
   console.log(winner);
 };
 moreLikelyWiner();
+
+/*
+Coding Challenge #2
+
+Let's continue with our football betting app! Keep using the 'game' variable from before.
+
+Your tasks:
+
+1.Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+
+3. Print the 3 odds to the console, but in a nice formatted way, exactly like this: 
+
+Odd of victory Bayern Munich: 1.33
+
+Odd of draw: 3.25
+
+Odd of victory Borrussia Dortmund: 6.5
+
+Get the team names directly from the game object, don't hardcode them (except for "draw"). Hint: Note how the odds and the game objects have the same property names 😉
+
+Bonus: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+
+{ Gnarby: 1, Hummels: 1, Lewandowski: 2 }
+GOOD LUCK 😀
+
+*/
+// const goalCount = {};
+// for (const player of game.scored) {
+//   console.log(player);
+//   goalCount[player] = (goalCount[player] ?? 0) + 1
+
+//   //console.log(`Goal ${goal} : ${scored}`);
+// }
+// console.log(goalCount);
+//"Goal 1: Lewandowski";
+
+// 1.
+let goalNumber = 0;
+for (const player of game.scored) {
+  console.log(player);
+
+  console.log(`Goal ${goalNumber}: ${player}`);
+  goalNumber++;
+}
