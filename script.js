@@ -464,8 +464,7 @@ Odd of victory Borrussia Dortmund: 6.5
 Get the team names directly from the game object, don't hardcode them (except for "draw"). Hint: Note how the odds and the game objects have the same property names 😉
 
 Bonus: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
-
-{ Gnarby: 1, Hummels: 1, Lewandowski: 2 }
+  
 GOOD LUCK 😀
 
 */
@@ -480,10 +479,31 @@ GOOD LUCK 😀
 //"Goal 1: Lewandowski";
 
 // 1.
-let goalNumber = 0;
+let goalNumber = 1;
 for (const player of game.scored) {
   console.log(player);
 
   console.log(`Goal ${goalNumber}: ${player}`);
   goalNumber++;
 }
+
+const oddsAverage = function ({ odds }) {
+  let sum = 0;
+  let counter = 0;
+  for (const odd of Object.values(game.odds)) {
+    console.log(odd);
+    sum += odd;
+    counter++;
+  }
+  return sum / counter;
+  console.log(counter);
+  console.log(sum);
+};
+
+console.log(oddsAverage(game.odds));
+
+// const average = (game.odds.team1 + game.odds.x + game.odds.team2) / 3;
+// console.log(average);
+console.log(`Odd of victory ${game.team1}:${game.odds.team1}`);
+console.log(`Odd of draw :${game.odds.x}`);
+console.log(`Odd of victory ${game.team2}:${game.odds.team2}`);
