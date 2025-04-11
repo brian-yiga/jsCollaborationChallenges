@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -340,41 +340,41 @@ names (not an array) and prints each of them to the console, along with the numb
 Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'.
 Then, call the function again with players from game.scored
 GOOD LUCK 😀 */
-
+/*
 const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
   players: [
     [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
     ],
     [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
     ],
   ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
   odds: {
     team1: 1.33,
     x: 3.25,
@@ -401,7 +401,7 @@ const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 // 4.
-const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(players1Final);
 
 // 5.
@@ -422,7 +422,7 @@ const printGoals = function (...allPlayers) {
   // Total number of
   console.log(`Total goals scored: ${allPlayers.length}`);
 };
-printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
+printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
 
 // 7. Fuction to print the team more likely to win based on lower odds
 
@@ -479,6 +479,8 @@ GOOD LUCK 😀
 //"Goal 1: Lewandowski";
 
 // 1.
+/*
+
 let goalNumber = 1;
 for (const player of game.scored) {
   console.log(player);
@@ -554,6 +556,8 @@ const gameEvents = new Map([
 */
 
 //1. Create an array 'events' of the different game events that happened (no duplicates)
+/*
+
 const gameEvents = new Map([
   [17, "⚽ GOAL"],
 
@@ -595,6 +599,61 @@ for (const [min, event] of gameEvents) {
   //[FIRST HALF] 17: ⚽ GOAL
 }
 
-/*
 
 */
+
+/*
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM (see code below to insert the elements), and conversion will happen when the button is pressed.
+
+Test data (pasted to textarea, including spaces):
+
+underscore_case
+ first_name
+Some_Variable
+ calculate_AGE
+delayed_departure
+
+Should produce this output (5 separate console.log outputs):
+
+underscoreCase    ✅
+firstName         ✅✅
+someVariable      ✅✅✅
+calculateAge      ✅✅✅✅
+delayedDeparture  ✅✅✅✅✅
+
+Hints:
+
+§ Remember which character defines a new line in the textarea 😉
+
+§ The solution only needs to work for a variable made out of 2 words, like a_b
+
+§ Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+
+§ This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+
+
+*/
+// Create a function
+// add event listerner to button
+// capture input from text area
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+const btn = document.querySelector('button');
+
+const camelCaseConvert = function ([text]) {
+  text = document.querySelector('textarea').value;
+  const splitText = text.trim().split('_');
+  const cap = splitText[1];
+  const firstLetter = cap[0].toUpperCase() + cap.slice(1);
+  const finalText = splitText[0] + firstLetter;
+
+  console.log(finalText / g, 'n');
+};
+btn.addEventListener('click', camelCaseConvert);
