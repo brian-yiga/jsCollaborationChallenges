@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -643,17 +643,55 @@ GOOD LUCK 😀
 // add event listerner to button
 // capture input from text area
 
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-const btn = document.querySelector('button');
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+const btn = document.querySelector("button");
 
-const camelCaseConvert = function ([text]) {
-  text = document.querySelector('textarea').value;
-  const splitText = text.trim().split('_');
-  const cap = splitText[1];
-  const firstLetter = cap[0].toUpperCase() + cap.slice(1);
-  const finalText = splitText[0] + firstLetter;
+const camelCaseConvert = function () {
+  const text = document.querySelector("textarea").value;
+  //const splitText = text.trim().split('_');
+  const lines = text.split("\n");
+  for (const [i, line] of lines.entries()) {
+    const symbol = "✅";
+    const splitText = line.trim().split("_");
+    //const cap = splitText[1];
+    // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
+    //const finalText = splitText[0] + firstLetter;
+    const finalText =
+      splitText[0] +
+      splitText[1].charAt(0).toUpperCase() +
+      splitText[1].slice(1);
+    // console.log(finalText);
 
-  console.log(finalText / g, 'n');
+    console.log(`${finalText} ${symbol.repeat(i + 1)}`);
+  }
+  // const cap = splitText[1];
+  // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
+  // const finalText = splitText[0] + firstLetter;
+
+  //console.log(line);
 };
-btn.addEventListener('click', camelCaseConvert);
+btn.addEventListener("click", camelCaseConvert);
+
+/*
+1. Even or Odd
+Problem Statement:
+Given an integer, determine if it is even or odd.
+
+Example:
+
+evenOrOdd(6); // Output: "Even"
+evenOrOdd(7); // Output: "Odd"
+
+*/
+
+const evenOrOdd = function (integer) {
+  if (integer % 2 === 0) {
+    console.log("Even");
+  } else {
+    console.log("Odd");
+  }
+};
+
+evenOrOdd(6);
+evenOrOdd(7);
