@@ -684,7 +684,7 @@ evenOrOdd(6); // Output: "Even"
 evenOrOdd(7); // Output: "Odd"
 
 */
-
+/*
 const evenOrOdd = function (integer) {
   if (integer % 2 === 0) {
     console.log('Even');
@@ -695,6 +695,8 @@ const evenOrOdd = function (integer) {
 
 evenOrOdd(6);
 evenOrOdd(7);
+
+*/
 
 /*
 
@@ -709,20 +711,20 @@ isPrime(7); // Output: true
 isPrime(10); // Output: false
 */
 
-const isPrime = function (integer) {
-  if (integer <= 1) {
-    return false;
-  }
+// const isPrime = function (integer) {
+//   if (integer <= 1) {
+//     return false;
+//   }
 
-  // Numbers less than 1 or equal to 1 are not prime
-  for (let i = 2; i < integer; i++) {
-    if (integer % i === 0) {
-      return false;
-    }
-  }
-  return true;
-};
-console.log(isPrime(11));
+// Numbers less than 1 or equal to 1 are not prime
+//   for (let i = 2; i < integer; i++) {
+//     if (integer % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+// console.log(isPrime(11));
 
 /*
 3. Largest Number in Array
@@ -734,7 +736,7 @@ Example:
 
 largestNumber([1, 5, 9, 4]); // Output: 9
 */
-
+/*
 const largestNumber = function (arr) {
   let large = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -745,6 +747,8 @@ const largestNumber = function (arr) {
   return large;
 };
 console.log(largestNumber([1, 5, 9, 4, 12, 5]));
+
+*/
 
 /*
 4. Count Digits in a Number
@@ -758,7 +762,101 @@ countDigits(456); // Output: 3
 countDigits(12345); // Output: 5
 */
 
+/*
 const countDigits = function (digit) {
   console.log(digit.toString().length);
 };
 countDigits(1230000);
+*/
+/*
+
+5. Check Armstrong Number
+
+Problem Statement:
+Check if a number is an Armstrong number. An Armstrong number of three digits is a number that is equal to the sum of the cubes of its digits.
+
+Example:
+
+isArmstrong(153); // Output: true
+isArmstrong(123); // Output: false
+*/
+
+/*
+const isArmstrong = function (number) {
+  // 1^3 + 2^3 + 5^3 = 153
+  // convert numnber to array
+
+  const toString = number.toString().split('');
+  // [1, 2, 3]
+  const newNumber = toString
+    .map(x => {
+      return x ** 3;
+    })
+    .reduce((x, y) => x + y);
+
+  if (newNumber == number) {
+    console.log('Amstrong');
+  } else {
+    console.log('Not amstrong');
+  }
+};
+isArmstrong(153);
+
+*/
+
+/*
+
+6. Staircase
+
+Problem Statement:
+Write a function to print a staircase of n steps using # symbols.
+
+Example:
+
+staircase(5);
+Output:
+    #
+   ##
+  ###
+ ####
+#####
+*/
+/*
+const staircase = function (n) {
+  for (let i = 1; i <= n; i++) {
+    let stairs = '#'.repeat(i);
+
+    console.log(stairs.padStart(n));
+  }
+};
+staircase(10);
+
+*/
+
+/*
+
+7. Time Conversion
+
+Problem Statement:
+Convert 12-hour AM/PM format time to 24-hour format time.
+
+Example:
+
+timeConversion("07:45:54PM"); // Output: "19:45:54"
+*/
+
+const timeConversion = function (time) {
+  let period = time.slice(-2);
+  let [hour, minutes, seconds] = time.slice(0, -2).split(':');
+
+  hour = parseInt(hour);
+
+  if (period === 'AM') {
+    if (hour === 12) hour = 0;
+  } else {
+    if (hour !== 12) hour += 12;
+  }
+  let hourString = hour.toString().padStart(2, '0');
+  return `${hour}:${minutes}:${seconds}`;
+};
+console.log(timeConversion('10:45:54PM'));
