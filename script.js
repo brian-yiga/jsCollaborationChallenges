@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -638,40 +638,40 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 
 
-*/
-// Create a function
-// add event listerner to button
-// capture input from text area
+// */
+// // Create a function
+// // add event listerner to button
+// // capture input from text area
 
-document.body.append(document.createElement("textarea"));
-document.body.append(document.createElement("button"));
-const btn = document.querySelector("button");
+// document.body.append(document.createElement("textarea"));
+// document.body.append(document.createElement("button"));
+// const btn = document.querySelector("button");
 
-const camelCaseConvert = function () {
-  const text = document.querySelector("textarea").value;
-  //const splitText = text.trim().split('_');
-  const lines = text.split("\n");
-  for (const [i, line] of lines.entries()) {
-    const symbol = "✅";
-    const splitText = line.trim().split("_");
-    //const cap = splitText[1];
-    // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
-    //const finalText = splitText[0] + firstLetter;
-    const finalText =
-      splitText[0] +
-      splitText[1].charAt(0).toUpperCase() +
-      splitText[1].slice(1);
-    // console.log(finalText);
+// const camelCaseConvert = function () {
+//   const text = document.querySelector("textarea").value;
+//   //const splitText = text.trim().split('_');
+//   const lines = text.split("\n");
+//   for (const [i, line] of lines.entries()) {
+//     const symbol = "✅";
+//     const splitText = line.trim().split("_");
+//     //const cap = splitText[1];
+//     // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
+//     //const finalText = splitText[0] + firstLetter;
+//     const finalText =
+//       splitText[0] +
+//       splitText[1].charAt(0).toUpperCase() +
+//       splitText[1].slice(1);
+//     // console.log(finalText);
 
-    console.log(`${finalText} ${symbol.repeat(i + 1)}`);
-  }
-  // const cap = splitText[1];
-  // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
-  // const finalText = splitText[0] + firstLetter;
+//     console.log(`${finalText} ${symbol.repeat(i + 1)}`);
+//   }
+//   // const cap = splitText[1];
+//   // const firstLetter = cap[0].toUpperCase() + cap.slice(1);
+//   // const finalText = splitText[0] + firstLetter;
 
-  //console.log(line);
-};
-btn.addEventListener("click", camelCaseConvert);
+//   //console.log(line);
+// };
+// btn.addEventListener("click", camelCaseConvert);
 
 /*
 1. Even or Odd
@@ -687,11 +687,78 @@ evenOrOdd(7); // Output: "Odd"
 
 const evenOrOdd = function (integer) {
   if (integer % 2 === 0) {
-    console.log("Even");
+    console.log('Even');
   } else {
-    console.log("Odd");
+    console.log('Odd');
   }
 };
 
 evenOrOdd(6);
 evenOrOdd(7);
+
+/*
+
+2. Prime Number Checker
+
+Problem Statement:
+Write a function to check if a number is prime or not.
+
+Example:
+
+isPrime(7); // Output: true
+isPrime(10); // Output: false
+*/
+
+const isPrime = function (integer) {
+  if (integer <= 1) {
+    return false;
+  }
+
+  // Numbers less than 1 or equal to 1 are not prime
+  for (let i = 2; i < integer; i++) {
+    if (integer % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(isPrime(11));
+
+/*
+3. Largest Number in Array
+
+Problem Statement:
+Find the largest number in a given array.
+
+Example:
+
+largestNumber([1, 5, 9, 4]); // Output: 9
+*/
+
+const largestNumber = function (arr) {
+  let large = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > large) {
+      large = arr[i];
+    }
+  }
+  return large;
+};
+console.log(largestNumber([1, 5, 9, 4, 12, 5]));
+
+/*
+4. Count Digits in a Number
+
+Problem Statement:
+Given a number, count how many digits it contains.
+
+Example:
+
+countDigits(456); // Output: 3
+countDigits(12345); // Output: 5
+*/
+
+const countDigits = function (digit) {
+  console.log(digit.toString().length);
+};
+countDigits(1230000);
