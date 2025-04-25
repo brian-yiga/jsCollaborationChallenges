@@ -356,11 +356,9 @@ return value;
 
 console.log(convertToPrimitive(null));*/
 
-
 //STRING MANIPULATION CHALLENGES
 /*Exercise 2A: 
 Write a function that checks if a string is a palindrome (the string is the same forwards and backwards), ignoring spaces and punctuation.*/
-
 
 //* FOOTBALL BETTING APP CHALLENGE
 //*TASKS
@@ -397,7 +395,6 @@ Then, call the function again with players from game.scored
 //     },
 // },
 
-
 /*This is more of a thinking challenge than a coding challenge 🤓
 Your tasks:
 
@@ -412,13 +409,13 @@ const header = document.querySelector('h1');
 header.style.color = 'red';
 })();*/
 
-(function () {
-    let header = document.querySelector('h1');
-    header.style.color = 'green';
-    document.querySelector('body').addEventListener('click', function(){
-        header.style.color = 'blue';
-    });
-})();
+// (function () {
+//     let header = document.querySelector('h1');
+//     header.style.color = 'green';
+//     document.querySelector('body').addEventListener('click', function(){
+//         header.style.color = 'blue';
+//     });
+// })();
 
 /*Coding Challenge #1
 Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
@@ -442,17 +439,135 @@ Test data:
 § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 Hints: Use tools from all lectures in this section so far 😉*/
 
-const dogsJulia = [3, 5, 2, 12, 7];
-const dogsKate = [4, 1, 15, 8, 3];
+// const dogsJulia = [3, 5, 2, 12, 7];
+// const dogsKate = [4, 1, 15, 8, 3];
 
-const checkDogs = function ([dogsJulia], [dogsKate]) {
-    const dogsJuliaSorted = dogsJulia.slice(1, -1);
-    const combinedDogs = [...dogsJuliaSorted, ...dogsKate];
-    combinedDogs.forEach((dogAge, i)=>{
-        dogAge >= 3 ? console.log(`Dog number ${[i + 1]} is an adult, and is ${dogAge} years old`) : console.log(`Dog number ${[i + 1]} is still a puppy`);
-    })
-}
+// const checkDogs = function ([dogsJulia], [dogsKate]) {
+//     const dogsJuliaSorted = dogsJulia.slice(1, -1);
+//     const combinedDogs = [...dogsJuliaSorted, ...dogsKate];
+//     combinedDogs.forEach((dogAge, i)=>{
+//         dogAge >= 3 ? console.log(`Dog number ${[i + 1]} is an adult, and is ${dogAge} years old`) : console.log(`Dog number ${[i + 1]} is still a puppy`);
+//     })
+// }
 
-checkDogs([dogsJulia], [dogsKate]);
+// checkDogs([dogsJulia], [dogsKate]);
+
+/*Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and calculate the average age of the dogs in their study.
+
+Your tasks:
+
+1. Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following things in order:
+
+A. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4
+
+B. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18 years old)
+
+C. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages 😉)
+
+D. Run the function for both test datasets
+
+Test data:
+§ Data 1: [5, 2, 4, 1, 15, 8, 3]
+§ Data 2: [16, 6, 10, 5, 6, 1, 4]*/
+
+// const calcAverageHumanAge = function (ages) {
+//     const humanAge = ages.map(function(age) {
+//         if (age <= 2) {
+//             return 2 * age
+//         } else if ( age > 2 ) {
+//             return 16 + (age * 4)
+//         }
+//     }).filter(function(age) {
+//         return age>18;
+//     })
+//     const totalHumanAge = humanAge.reduce(function(acc, age, i, arr) {
+//         return (acc + age)
+//     })
+
+//     const averageHumanAge = totalHumanAge / humanAge.length;
+//     console.log(humanAge);
+//     console.log(averageHumanAge);
+
+// }
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+//LOGIC CHALLENGE NO.9
+
+// 9. Diagonal Difference
+// Problem Statement:
+// Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+// Example:
+
+// diagonalDifference
+
+// ([[11, 2, 4],
+
+// [4, 5, 6],
+
+// [10, 8, -12]]);
+// Output: 15
+
+/*8const diagonalDifference = (matrix) => {
+    let primarySum = 0;
+    let secondarySum = 0;
+    const n = matrix.length;
 
 
+    for (let i = 0; i < n; i++) {
+        primarySum += matrix[i][i];
+        secondarySum += matrix[i][n - 1 - i];
+        console.log(secondarySum);
+        console.log(primarySum);
+    }
+    return Math.abs(primarySum - secondarySum);
+};
+
+const matrix = [
+    [11, 2, 4], 
+    [4, 5, 6], 
+    [10, 8, -12]
+]
+
+console.log(diagonalDifference(matrix));*/
+
+/*Plus Minus
+Problem Statement:
+Calculate the ratio of positive, negative, and zero values in an array.
+
+Example:
+
+plusMinus([1, 1, 0, -1, -1]);
+// Output: 0.400000 0.400000 0.200000*/
+
+const numbers = [1, 1, 0, -1, -1];
+
+const plusMinusRatio = function (numbers) {
+  let positives = 0;
+  let negatives = 0;
+  let zeros = 0;
+  const total = numbers.length;
+
+  for (let num of numbers) {
+    if (num > 0) positives++;
+    else if (num < 0) negatives++;
+    else zeros++;
+  }
+  return {
+    frequencies: { 
+        positives, 
+        negatives, 
+        zeros 
+    },
+
+    ratios: {
+      positives: positives / total,
+      negatives: negatives / total,
+      zeros: zeros / total,
+    },
+  };
+
+};
+
+console.log(plusMinusRatio(numbers));
