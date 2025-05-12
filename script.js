@@ -847,18 +847,20 @@ Example:
 timeConversion("07:45:54PM"); // Output: "19:45:54"
 */
 
-const timeConversion = function (time) {
-  let period = time.slice(-2);
-  let [hour, minutes, seconds] = time.slice(0, -2).split(':');
+// const timeConversion = function (time) {
+//   let period = time.slice(-2);
+//   let [hour, minutes, seconds] = time.slice(0, -2).split(':');
 
-  hour = parseInt(hour);
+//   hour = parseInt(hour);
 
-  if (period === 'AM') {
-    if (hour === 12) hour = 0;
-  } else {
-    if (hour !== 12) hour += 12;
-  }
-  let hourString = hour.toString().padStart(2, '0');
-  return `${hour}:${minutes}:${seconds}`;
-};
-console.log(timeConversion('10:45:54PM'));
+//   if (period === 'AM') {
+//     if (hour === 12) hour = 0;
+//   } else {
+//     if (hour !== 12) hour += 12;
+//   }
+//   let hourString = hour.toString().padStart(2, '0');
+//   return `${hour}:${minutes}:${seconds}`;
+// };
+// console.log(timeConversion('10:45:54PM'));
+
+
