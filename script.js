@@ -1,11 +1,11 @@
-'use strict';
-(function () {
-  const header = document.querySelector('h1');
-  header.style.color = 'red';
-  document.querySelector('body').addEventListener('click', function () {
-    header.style.color = 'blue';
-  });
-})();
+"use strict";
+// (function () {
+//   const header = document.querySelector("h1");
+//   header.style.color = "red";
+//   document.querySelector("body").addEventListener("click", function () {
+//     header.style.color = "blue";
+//   });
+// })();
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -300,7 +300,7 @@ Expected Output:
 /*Destructuring with Functions - Extract and Return Specific Values
 
 You are given a function getUserInfo that receives an object as an argument. The object contains properties name, age, city, and country. Use destructuring to extract name and city, and return a string with this information. If any of these properties are missing, use default values: "Unknown" for name and "Unknown City" for city.*/
-
+/*
 const getUserInfo = function ({name = 'Unknown', city = 'Unknown City', age, country}) {
     return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
 }
@@ -847,18 +847,104 @@ Example:
 timeConversion("07:45:54PM"); // Output: "19:45:54"
 */
 
+/*
 const timeConversion = function (time) {
   let period = time.slice(-2);
-  let [hour, minutes, seconds] = time.slice(0, -2).split(':');
+  let [hour, minutes, seconds] = time.slice(0, -2).split(":");
 
   hour = parseInt(hour);
 
-  if (period === 'AM') {
+  if (period === "AM") {
     if (hour === 12) hour = 0;
   } else {
     if (hour !== 12) hour += 12;
   }
-  let hourString = hour.toString().padStart(2, '0');
+  let hourString = hour.toString().padStart(2, "0");
   return `${hour}:${minutes}:${seconds}`;
 };
-console.log(timeConversion('10:45:54PM'));
+console.log(timeConversion("10:45:54PM"));
+*/
+
+/*
+Coding Challenge #4
+
+Julia and Kate are still studying dogs, and this time they are studying if dogs are eating too much or too little.
+
+Eating too much means the dog's current food portion is larger than the recommended portion, and eating too little is the opposite.
+
+Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion (see hint).
+
+Your tasks:
+
+1.Loop over the 'dogs' array containing dog objects, and for each dog, calculate the recommended food portion and add it to the object as a new property. Do not create a new array, simply loop over the array. Forumla: recommendedFood = weight ** 0.75 * 28. (The result is in grams of food, and the weight needs to be in kg)
+
+2.Find Sarah's dog and log to the console whether it's eating too much or too little. Hint: Some dogs have multiple owners, so you first need to find Sarah in the owners array, and so this one is a bit tricky (on purpose) 🤓
+
+3. Create an array containing all owners of dogs who eat too much ('ownersEatTooMuch') and an array with all owners of dogs who eat too little ('ownersEatTooLittle').
+
+4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
+
+5.Log to the console whether there is any dog eating exactly the amount of food that is recommended (just true or false)
+
+6. Log to the console whether there is any dog eating an okay amount of food (just true or false)
+
+7.Create an array containing the dogs that are eating an okay amount of food (try to reuse the condition used in 6.)
+
+8. Create a shallow copy of the 'dogs' array and sort it by recommended food portion in an ascending order (keep in mind that the portions are inside the array's objects 😉)
+
+Hints:
+
+§ Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
+
+§ Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended *
+
+1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+
+Test data:
+
+const dogs = [ { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] }, { weight: 8, curFood: 200, owners: ['Matilda'] }, { weight: 13, curFood: 275, owners: ['Sarah', 'John'] }, { weight: 32, curFood: 340, owners: ['Michael'] }, ];
+
+ 
+
+GOOD LUCK
+*/
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+/*
+Forumla: recommendedFood = weight ** 0.75 * 28. (The result is in grams of food, and the weight needs to be in kg)
+*/
+
+dogs.forEach((dog) => {
+  dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28);
+  //console.log(dog);
+});
+
+//2.
+const sarahDog = dogs.find((dog) => dog.owners.includes("Sarah"));
+
+sarahDog.curFood > sarahDog.recommendedFood * 0.9
+  ? console.log("dog is eating too much")
+  : console.log("Eating less");
+//console.log(sarahDog);
+
+//3.
+
+const ownersEatTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
+//console.log(dog);
+//console.log(dog.owners)
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
+//console.log(dog);
+//console.log(dog.owners)
+console.log(ownersEatTooLittle);
