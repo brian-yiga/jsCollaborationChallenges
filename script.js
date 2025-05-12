@@ -13,7 +13,7 @@ For example, for [1, 2, 2] it should return 9 because 1**2+2**2+2**2=9.
 
 */
 //How to square numbers num**num
-// //todo loop through the array using a for loop
+// //* loop through the array using a for loop
 // function squareSum(numbers){
 //     let sum = 0;
 //     for (let i = 0; i<numbers.length; i++) {
@@ -26,7 +26,7 @@ For example, for [1, 2, 2] it should return 9 because 1**2+2**2+2**2=9.
 
 // console.log(squareSum([1, 2, 2]))
 
-//todo loop through the array using a for..of loop
+//* loop through the array using a for..of loop
 
 // const numbers = [1, 2, 2];
 // function squareSum(numbers) {
@@ -301,14 +301,9 @@ Expected Output:
 
 You are given a function getUserInfo that receives an object as an argument. The object contains properties name, age, city, and country. Use destructuring to extract name and city, and return a string with this information. If any of these properties are missing, use default values: "Unknown" for name and "Unknown City" for city.*/
 
-/* const getUserInfo = function ({
-  name = 'Unknown',
-  city = 'Unknown City',
-  age,
-  country,
-}) {
-  return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
-};
+const getUserInfo = function ({name = 'Unknown', city = 'Unknown City', age, country}) {
+    return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
+}
 
 const user = {
   // name: 'Brian',
@@ -788,22 +783,28 @@ isArmstrong(153); // Output: true
 isArmstrong(123); // Output: false
 */
 
+/*
 const isArmstrong = function (number) {
   // 1^3 + 2^3 + 5^3 = 153
   // convert numnber to array
 
   const toString = number.toString().split('');
   // [1, 2, 3]
-  const newNumber = toString.map(x => x ** 3).reduce((x, y) => x + y);
-  console.log(newNumber);
+  const newNumber = toString
+    .map(x => {
+      return x ** 3;
+    })
+    .reduce((x, y) => x + y);
 
-  if (newNumber === number) {
+  if (newNumber == number) {
     console.log('Amstrong');
   } else {
     console.log('Not amstrong');
   }
 };
 isArmstrong(153);
+
+*/
 
 /*
 
@@ -845,7 +846,7 @@ Example:
 
 timeConversion("07:45:54PM"); // Output: "19:45:54"
 */
-/*
+
 const timeConversion = function (time) {
   let period = time.slice(-2);
   let [hour, minutes, seconds] = time.slice(0, -2).split(':');
@@ -861,20 +862,3 @@ const timeConversion = function (time) {
   return `${hour}:${minutes}:${seconds}`;
 };
 console.log(timeConversion('10:45:54PM'));
-
-*/
-
-// MAP CREATE A N EW ARRAY BASED ON THE ELEMENTS OF THE ORIGINAL ARRAY
-
-// const numbers = [1, 2, 3, 4];
-
-// const doubled = numbers.reduce((x, y) => x + y);
-// console.log(doubled);
-
-// (function () {
-//   let header = document.querySelector('h1');
-//   header.style.color = 'green';
-//   document.querySelector('body').addEventListener('click', function () {
-//     header.style.color = 'blue';
-//   });
-// })();
