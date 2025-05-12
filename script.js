@@ -1,4 +1,11 @@
 'use strict';
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -781,28 +788,22 @@ isArmstrong(153); // Output: true
 isArmstrong(123); // Output: false
 */
 
-/*
 const isArmstrong = function (number) {
   // 1^3 + 2^3 + 5^3 = 153
   // convert numnber to array
 
   const toString = number.toString().split('');
   // [1, 2, 3]
-  const newNumber = toString
-    .map(x => {
-      return x ** 3;
-    })
-    .reduce((x, y) => x + y);
+  const newNumber = toString.map(x => x ** 3).reduce((x, y) => x + y);
+  console.log(newNumber);
 
-  if (newNumber == number) {
+  if (newNumber === number) {
     console.log('Amstrong');
   } else {
     console.log('Not amstrong');
   }
 };
 isArmstrong(153);
-
-*/
 
 /*
 
@@ -844,7 +845,7 @@ Example:
 
 timeConversion("07:45:54PM"); // Output: "19:45:54"
 */
-
+/*
 const timeConversion = function (time) {
   let period = time.slice(-2);
   let [hour, minutes, seconds] = time.slice(0, -2).split(':');
@@ -860,3 +861,20 @@ const timeConversion = function (time) {
   return `${hour}:${minutes}:${seconds}`;
 };
 console.log(timeConversion('10:45:54PM'));
+
+*/
+
+// MAP CREATE A N EW ARRAY BASED ON THE ELEMENTS OF THE ORIGINAL ARRAY
+
+// const numbers = [1, 2, 3, 4];
+
+// const doubled = numbers.reduce((x, y) => x + y);
+// console.log(doubled);
+
+// (function () {
+//   let header = document.querySelector('h1');
+//   header.style.color = 'green';
+//   document.querySelector('body').addEventListener('click', function () {
+//     header.style.color = 'blue';
+//   });
+// })();
