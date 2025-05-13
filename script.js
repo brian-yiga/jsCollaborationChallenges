@@ -896,9 +896,7 @@ Hints:
 
 § Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
 
-§ Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended *
-
-1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+§ Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
 
 Test data:
 
@@ -948,3 +946,39 @@ const ownersEatTooLittle = dogs
 //console.log(dog);
 //console.log(dog.owners)
 console.log(ownersEatTooLittle);
+
+//4.
+console.log(`${ownersEatTooMuch.join(" and ")}\'s dogs eat too much!`);
+
+console.log(`${ownersEatTooLittle.join(" and ")}\'s dogs eat too little!`);
+
+//current > recommended * 0.9 && current < recommended * 1.1;
+
+//5. Dog is eating an exact amount
+const exactAmount = dogs.some((dog) => dog.curFood === dog.recommendedFood);
+console.log(exactAmount);
+
+//6. Dog is eating an okay amount of food
+const okayAmount = dogs.some(
+  (dog) =>
+    dog.curFood > dog.recommendedFood * 0.9 &&
+    dog.curFood < dog.recommendedFood * 1.1
+);
+
+console.log(okayAmount);
+
+//7. Array with dogs eating okay amount
+const okayAmountDogsArray = dogs.filter(
+  (dog) =>
+    dog.curFood > dog.recommendedFood * 0.9 &&
+    dog.curFood < dog.recommendedFood * 1.1
+);
+
+console.log(okayAmountDogsArray);
+
+//8. shallow copy of dogs sorted in an ascending order
+
+const dogsShallowCopy = [
+  ...dogs.sort((a, b) => a.recommendedFood - b.recommendedFood),
+];
+console.log(dogsShallowCopy);
