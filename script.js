@@ -1,11 +1,11 @@
 'use strict';
-(function () {
-  const header = document.querySelector('h1');
-  header.style.color = 'red';
-  document.querySelector('body').addEventListener('click', function () {
-    header.style.color = 'blue';
-  });
-})();
+// (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
+//   document.querySelector('body').addEventListener('click', function () {
+//     header.style.color = 'blue';
+//   });
+// })();
 
 /*Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
@@ -301,19 +301,19 @@ Expected Output:
 
 You are given a function getUserInfo that receives an object as an argument. The object contains properties name, age, city, and country. Use destructuring to extract name and city, and return a string with this information. If any of these properties are missing, use default values: "Unknown" for name and "Unknown City" for city.*/
 
-const getUserInfo = function ({name = 'Unknown', city = 'Unknown City', age, country}) {
-    return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
-}
+// const getUserInfo = function ({name = 'Unknown', city = 'Unknown City', age, country}) {
+//     return `Hello, ${name}. You are ${age} years old, you come from ${city} in ${country}`;
+// }
 
-const user = {
-  // name: 'Brian',
-  age: 30,
-  // city: 'Kampala',
-  country: 'Uganda',
-};
+// const user = {
+//   // name: 'Brian',
+//   age: 30,
+//   // city: 'Kampala',
+//   country: 'Uganda',
+// };
 
-console.log(getUserInfo(user));
-*/
+// console.log(getUserInfo(user));
+// */
 
 /*
 We're building a football betting app (soccer for my American friends 😅)!
@@ -863,4 +863,148 @@ timeConversion("07:45:54PM"); // Output: "19:45:54"
 // };
 // console.log(timeConversion('10:45:54PM'));
 
+/*
 
+Problem Statement:
+You have n laptops, each having a price. Determine the laptop with the minimum price.
+
+Example:
+
+findCheapestLaptop([500, 200, 100, 300]); // Output: 100
+*/
+
+// const findCheapestLaptop = function (n) {
+//   const smallestPrice = Math.min(...n);
+//   return smallestPrice;
+// };
+// console.log(findCheapestLaptop([500, 200, 100, 300]));
+
+// Method 2
+
+// const prices = [500, 200, 100, 300];
+
+// const minPrice = prices.reduce((a, b) => (a < b ? a : b));
+// console.log(minPrice);
+
+// 12. Lucky Division
+/*
+Problem Statement:
+Determine whether a number is divisible by 4, 7, or 47.
+
+Example:
+
+isLucky(47); // Output: "YES"
+isLucky(20); // Output: "NO"
+*/
+/*
+const isLucky = function (number) {
+  if ((number % 4 === 0 && number % 7 === 0) || number % 47 === 0) {
+    return 'YES';
+  } else {
+    return 'No';
+  }
+};
+console.log(isLucky(47));
+console.log(isLucky(20));
+*/
+
+/*
+Team
+Problem Statement:
+Count how many teams can be formed where at least one member of the team knows the problem.
+
+Example:
+
+countTeams([[1, 1, 0], [1, 1, 1], [0, 0, 0]]); // Output: 2
+
+*/
+
+const teams = [
+  [1, 1, 0],
+  [1, 1, 1],
+  [0, 0, 0],
+];
+const countTeams = function (teams) {
+  const team = teams.filter(team => team.includes(1));
+  return team.length;
+};
+console.log(countTeams(teams));
+
+/*Watermelon
+
+Problem Statement:
+Determine if a watermelon can be divided into two even-weight halves.
+
+Example:
+
+canDivide(8); // Output: YES
+canDivide(7); // Output: NO
+*/
+
+const canDivide = function (weight) {
+  return weight % 2 === 0 ? 'YES' : 'NO';
+  // return weight > 2 && weight % 2 === 0
+};
+
+console.log(canDivide(8));
+console.log(canDivide(7));
+
+/*
+Roman to Integer
+
+Problem Statement:
+Convert a Roman numeral to an integer.
+
+Example:
+
+romanToInt("III"); // Output: 3
+romanToInt("IV"); // Output: 4
+*/
+
+const romanToInt = function (roman) {
+  const romanNumerals = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let total = 0;
+
+  for (let i = 0; i < roman.length; i++) {
+    const current = romanNumerals[roman[i]];
+    const next = romanNumerals[roman[i + 1]];
+
+    //compare the next value to the current value
+    if (next > current) {
+      console.log(current);
+      console.log(next);
+      total += next - current;
+      i++; // skip next one (meaning it has been used)
+      console.log(total);
+    } else {
+      console.log(current);
+      console.log(next);
+      total += current;
+    }
+  }
+  return total;
+};
+
+console.log(romanToInt('LXVII'));
+
+/* Let’s take the Roman numeral "IV" as an example:
+
+X (10) → followed by → IV (4)
+Since IV < X, we do X + IV = 14
+
+That uses both characters: I and V
+
+So, after processing I, we don't want to process V again — it’s already included in the subtraction
+
+👉 That’s why we do i++ — to skip over the next character.
+
+*/
